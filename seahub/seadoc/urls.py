@@ -2,7 +2,7 @@ from django.urls import re_path
 from .apis import SeadocAccessToken, SeadocUploadLink, SeadocDownloadLink, SeadocRevisionDownloadLinks, SeadocUploadFile, \
     SeadocUploadImage, SeadocDownloadImage, SeadocCopyHistoryFile, SeadocHistory, SeadocDrafts, SeadocMaskAsDraft, \
     SeadocCommentsView, SeadocCommentView, SeadocStartRevise, SeadocPublishRevision, SeadocRevisionsCount, SeadocRevisions, \
-    SeadocCommentRepliesView, SeadocCommentReplyView, SeadocFileView, SeadocDirView
+    SeadocCommentRepliesView, SeadocCommentReplyView, SeadocFileView, SeadocDirView, SdocFileHistory
 
 
 # api/v2.1/seadoc/
@@ -28,4 +28,5 @@ urlpatterns = [
     re_path(r'^revisions/(?P<file_uuid>[-0-9a-f]{36})/$', SeadocRevisions.as_view(), name='seadoc_revisions'),
     re_path(r'^file/(?P<file_uuid>[-0-9a-f]{36})/$', SeadocFileView.as_view(), name='seadoc_file_view'),
     re_path(r'^dir/(?P<file_uuid>[-0-9a-f]{36})/$', SeadocDirView.as_view(), name='seadoc_dir_view'),
+    re_path(r'^(?P<repo_id>[-0-9a-f]{36})/file/history/$', SdocFileHistory.as_view(), name='seadoc_file_history'),
 ]
