@@ -128,6 +128,9 @@ class SeadocRevisionManager(models.Manager):
             publish_file_version=publish_file_version,
             is_published=True,
         )
+    
+    def delete(self, revision_id):
+        self.filter(revision_id=revision_id, is_published=False).delete()
 
 
 class SeadocRevision(models.Model):

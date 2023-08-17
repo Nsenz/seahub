@@ -1,8 +1,8 @@
 from django.urls import re_path
-from .apis import SeadocAccessToken, SeadocUploadLink, SeadocDownloadLink, SeadocRevisionDownloadLinks, SeadocUploadFile, \
+from .apis import SeadocAccessToken, SeadocUploadLink, SeadocDownloadLink, SeadocOriginFileDownloadLink, SeadocUploadFile, \
     SeadocUploadImage, SeadocDownloadImage, SeadocCopyHistoryFile, SeadocHistory, SeadocDrafts, SeadocMaskAsDraft, \
     SeadocCommentsView, SeadocCommentView, SeadocStartRevise, SeadocPublishRevision, SeadocRevisionsCount, SeadocRevisions, \
-    SeadocCommentRepliesView, SeadocCommentReplyView, SeadocFileView, SeadocDirView, SdocFileHistory
+    SeadocCommentRepliesView, SeadocCommentReplyView, SeadocFileView, SeadocDirView, SdocFileHistoryContent
 
 
 # api/v2.1/seadoc/
@@ -11,7 +11,7 @@ urlpatterns = [
     re_path(r'^upload-file/(?P<file_uuid>[-0-9a-f]{36})/$', SeadocUploadFile.as_view(), name='seadoc_upload_file'),
     re_path(r'^upload-link/(?P<file_uuid>[-0-9a-f]{36})/$', SeadocUploadLink.as_view(), name='seadoc_upload_link'),
     re_path(r'^download-link/(?P<file_uuid>[-0-9a-f]{36})/$', SeadocDownloadLink.as_view(), name='seadoc_download_link'),
-    re_path(r'^revision/download-links/(?P<file_uuid>[-0-9a-f]{36})/$', SeadocRevisionDownloadLinks.as_view(), name='seadoc_revision_download_links'),
+    re_path(r'^origin-file-download-link/(?P<file_uuid>[-0-9a-f]{36})/$', SeadocOriginFileDownloadLink.as_view(), name='seadoc_origin_file_download_link'),
     re_path(r'^upload-image/(?P<file_uuid>[-0-9a-f]{36})/$', SeadocUploadImage.as_view(), name='seadoc_upload_image'),
     re_path(r'^download-image/(?P<file_uuid>[-0-9a-f]{36})/(?P<filename>.*)$', SeadocDownloadImage.as_view(), name='seadoc_download_image'),
     re_path(r'^copy-history-file/(?P<repo_id>[-0-9a-f]{36})/$', SeadocCopyHistoryFile.as_view(), name='seadoc_copy_history_file'),
@@ -28,5 +28,5 @@ urlpatterns = [
     re_path(r'^revisions/(?P<file_uuid>[-0-9a-f]{36})/$', SeadocRevisions.as_view(), name='seadoc_revisions'),
     re_path(r'^file/(?P<file_uuid>[-0-9a-f]{36})/$', SeadocFileView.as_view(), name='seadoc_file_view'),
     re_path(r'^dir/(?P<file_uuid>[-0-9a-f]{36})/$', SeadocDirView.as_view(), name='seadoc_dir_view'),
-    re_path(r'^(?P<repo_id>[-0-9a-f]{36})/file/history/$', SdocFileHistory.as_view(), name='seadoc_file_history'),
+    re_path(r'^history-content/(?P<file_uuid>[-0-9a-f]{36})/$', SdocFileHistoryContent.as_view(), name='seadoc_file_history_content'),
 ]
