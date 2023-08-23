@@ -19,7 +19,7 @@ from django.utils import timezone
 from django.db import transaction
 from django.urls import reverse
 
-from seaserv import seafile_api, check_quota, seafserv_threaded_rpc
+from seaserv import seafile_api, check_quota
 
 from seahub.views import check_folder_permission
 from seahub.api2.authentication import TokenAuthentication, SdocJWTTokenAuthentication
@@ -44,7 +44,6 @@ from seahub.utils.timeutils import utc_datetime_to_isoformat_timestr, timestamp_
 from seahub.base.models import FileComment
 from seahub.constants import PERMISSION_READ_WRITE, PERMISSION_INVISIBLE
 from seahub.seadoc.sdoc_server_api import SdocServerAPI
-from seahub.api2.views import get_repo_file
 
 
 logger = logging.getLogger(__name__)
