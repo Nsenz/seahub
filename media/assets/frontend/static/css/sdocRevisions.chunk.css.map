@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/css/sdoc-revisions.css"],"names":[],"mappings":"AAAA,qCACE,wBACF","file":"sdocRevisions.chunk.css","sourcesContent":[".sdoc-revisions .sdoc-revision:hover {\n  background-color: #f8f8f8;\n}\n"]}
